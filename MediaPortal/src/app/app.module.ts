@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 import { TitleComponent } from './title/title.component';
 import { NewtestcompComponent } from './newtestcomp/newtestcomp.component';
 import { RouterModule, Routes } from '@angular/router';
-
+import { HttpClientModule } from '@angular/common/http';
+import { WebsiteComponent } from './website/website.component';
 
 const myRoutes:Routes = [
   { path: 'new/:id', component: NewtestcompComponent },
+  { path: 'web', component: WebsiteComponent },
   { path: '', component: TitleComponent, pathMatch: "full"},
   { path: '**', redirectTo: "new/404"},
 ];
@@ -19,11 +21,13 @@ const myRoutes:Routes = [
   declarations: [
     AppComponent,
     TitleComponent,
-    NewtestcompComponent
+    NewtestcompComponent,
+    WebsiteComponent
   ],
   imports: [
     RouterModule.forRoot(myRoutes),
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [VideoDBService, {provide: "VideoComponentConfig", useValue: "meineConfig"}],
   bootstrap: [AppComponent]
