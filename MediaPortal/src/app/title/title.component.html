@@ -1,5 +1,8 @@
 <p>
-  <a routerLink="/new">Internal Link</a>
+  <a routerLink="/new" routerLinkActive="aktiv">Internal Link</a>
+</p>
+<p>
+  <a [routerLink]="['/new', myVideoID]" routerLinkActive="aktiv">Internal Link with param</a>
 </p>
 <p>Interpolation: {{name}}</p>
 <p>Length: {{length}}</p>

@@ -16,6 +16,7 @@ export class TitleComponent implements OnInit {
   array = ["Item1", "Item2", "Item3", "Item4", "Item5", "Item6", "Item7", "Item8"]
   videos:string[];
   isGreenActive = false;
+  myVideoID = 42;
   @Output() myEmitter = new EventEmitter();
 
   constructor(datenbank:VideoDBService, @Inject("VideoComponentConfig") config: string) {

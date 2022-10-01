@@ -8,8 +8,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const myRoutes:Routes = [
-  { path: '', component: TitleComponent },
-  { path: 'new', component: NewtestcompComponent },
+  { path: 'new/:id', component: NewtestcompComponent },
+  { path: '', component: TitleComponent, pathMatch: "full"},
+  { path: '**', redirectTo: "new/404"},
 ];
 
 
