@@ -1,0 +1,22 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <fieldset formGroupName="name">
+    <label for="">Vorname</label>
+    <br>
+    <input type="text" name="vorname" formControlName="vorname">
+    <br>
+    <label for="">Nachname</label>
+    <br>
+    <input type="text" name="nachname" formControlName="nachname">
+  </fieldset>
+  <br>
+  <label for="">Password</label>
+  <br>
+  <input type="password" name="passwd" formControlName="passwd">
+  <br>
+  <!-- <label for="">Mail</label>
+  <br>
+  <input type="text" name="mail" >
+  <br> -->
+  <br>
+  <button type="submit">Login</button>
+</form>

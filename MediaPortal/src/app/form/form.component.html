@@ -1,0 +1,22 @@
+<form #myForm="ngForm" (ngSubmit)="login(myForm.value)">
+  <fieldset ngModelGroup="name">
+    <label for="">Vorname</label>
+    <br>
+    <input type="text" name="vorname" required maxlength="8" ngModel>
+    <br>
+    <label for="">Nachname</label>
+    <br>
+    <input type="text" name="nachname" required maxlength="8" ngModel>
+  </fieldset>
+  <br>
+  <label for="">Password</label>
+  <br>
+  <input type="password" name="passwd" required minlength="8" ngModel>
+  <br>
+  <label for="">Mail</label>
+  <br>
+  <input type="text" name="mail" required email ngModel>
+  <br>
+  <br>
+  <button type="submit">Login</button>
+</form>

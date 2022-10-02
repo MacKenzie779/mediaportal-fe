@@ -1,0 +1,24 @@
+input {
+  //filed input changed
+  &.ng-dirty {
+    background-color: purple;
+  }
+  //noch nichts eingegeben
+  &.ng-pristine {
+    background-color: red;
+  }
+  //field input valid
+  &.ng-valid {
+    background-color: green;
+  }
+  //field touched
+  &.ng-touched {
+    background-color: blue;
+  }
+  //peding api call/vailidation
+  &.ng-pending {
+    background-color: yellow;
+  }
+}
+
+
