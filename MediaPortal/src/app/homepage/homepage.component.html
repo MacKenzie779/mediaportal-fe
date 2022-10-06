@@ -1,6 +1,12 @@
-<div [ngClass]="'bodydiv'">
+<div [ngClass]="'body_homepage'">
+  <mat-toolbar color="primary">
+    <img [ngClass]="'mediaPortalIcon'" src="../../assets/media-play-svgrepo-com.svg" alt="MediaPortalIcon">
+    <span [ngClass]="'nav_title'">MediaPortal</span>
+    <span class="example-spacer"></span>
+    <button mat-button>Sign in</button>
+    <button mat-stroked-button [ngClass]="'btn_signUp'">Sign up</button>
+  </mat-toolbar>
+  <mat-divider></mat-divider>
   <h1>MediaPortal</h1>
   <h2>Your best platform to convert your media files!</h2>
 </div>
-
-
