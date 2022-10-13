@@ -14,9 +14,11 @@ import { LoginComponent } from './login/login.component';
 import { MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { PricingComponent } from './pricing/pricing.component';
 
 const routes:Routes = [
   { path: '', component: HomepageComponent },
+  { path: 'pricing', component: PricingComponent },
   { path: 'login', component: LoginComponent },
   { path: '404', component: NotFoundPageComponent },
   { path: '**', redirectTo: '404', pathMatch: 'full' }
@@ -28,7 +30,8 @@ const routes:Routes = [
     AppComponent,
     HomepageComponent,
     NotFoundPageComponent,
-    LoginComponent
+    LoginComponent,
+    PricingComponent
   ],
   imports: [
     BrowserModule,
