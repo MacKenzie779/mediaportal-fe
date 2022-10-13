@@ -11,13 +11,15 @@ import { MatDividerModule } from '@angular/material/divider';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { LoginComponent } from './login/login.component';
-import { MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { PricingComponent } from './pricing/pricing.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes:Routes = [
   { path: '', component: HomepageComponent },
+  { path: 'contact', component: ContactComponent },
   { path: 'pricing', component: PricingComponent },
   { path: 'login', component: LoginComponent },
   { path: '404', component: NotFoundPageComponent },
@@ -31,7 +33,8 @@ const routes:Routes = [
     HomepageComponent,
     NotFoundPageComponent,
     LoginComponent,
-    PricingComponent
+    PricingComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

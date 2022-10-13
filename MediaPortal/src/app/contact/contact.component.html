@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MediaPortal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+      body, html {
+        height: 100%;
+        line-height: 1.8;
+      }
+
+      /* Full height image header */
+      .bgimg-1 {
+        background-position: center;
+        background-size: cover;
+        min-height: 100%;
+      }
+
+      .w3-bar .w3-button {
+        padding: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <a [routerLink]="['']" class="w3-bar-item w3-button w3-wide"><i class="fa fa-gears"></i><b>MEDIA-PORTAL</b></a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-hide-small">
+          <a [routerLink]="['/login']" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> SIGN IN</a>
+          <a [routerLink]="['/signup']" class="w3-bar-item w3-button"><i class="fa fa-user"></i> SIGN UP</a>
+          <a [routerLink]="['/pricing']" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a>
+          <a [routerLink]="['/contact']" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" (click)="open_sidebar()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Sidebar on small screens when clicking the menu icon -->
+    <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-right w3-hide-medium w3-hide-large" style="display:none; right:0" id="mySidebar">
+      <a href="javascript:void(0)" (click)="close_sidebar()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+      <a [routerLink]="['/login']" (click)="close_sidebar()" class="w3-bar-item w3-button">SIGN IN</a>
+      <a [routerLink]="['/signup']" (click)="close_sidebar()" class="w3-bar-item w3-button">SIGN UP</a>
+      <a [routerLink]="['/pricing']" (click)="close_sidebar()" class="w3-bar-item w3-button">PRICING</a>
+      <a [routerLink]="['/contact']" (click)="close_sidebar()" class="w3-bar-item w3-button">CONTACT</a>
+    </nav>
+
+    <!-- Contact Section -->
+    <div class="bgimg-1 w3-container w3-light-grey" style="padding:80px 16px 16px 16px" id="contact">
+      <h1 class="w3-center">IMPRESSUM</h1>
+      <h3 class="w3-center">Legal Disclosure</h3>
+      <h4 class="w3-center">Information in accordance with section 5 TMG:</h4>
+      <p class="w3-center">
+        Hell Björn<br>
+        Schnollsweg 69<br>
+        39069 Kortsch<br>
+        E-Mail: hell@björn.rust<br>
+      </p>
+      <h4 class="w3-center">Person responsible for content in accordance with 55 Abs. 2 RStV</h4>
+      <p class="w3-center">Michael Morandell</p>
+      <p class="w3-center">------------------------------------------------------------------------------------------------------------------------</p>
+      <h1 class="w3-center">CONTACT</h1>
+      <h3 class="w3-center">Lets get in touch. Send us a message:</h3>
+      <div class="w3-center" style="margin-top:38px">
+        <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Schnollsweg 69, Kortsch, IT</p>
+        <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +39 0471 236 635 23</p>
+        <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: info@mediaportal.com</p>
+        <br>
+      </div>
+    </div>
+  </body>
+</html>
