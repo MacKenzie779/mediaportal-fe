@@ -1,34 +1,12 @@
-.body_homepage {
-  height: 100%;
-  background-image: url("../../assets/61769.jpg");
-  background-size: 100%;
+.parentdiv {
+  /* Setup */
+  position: relative;
 }
 
-:host {
-  display: flex;
-  justify-content: center;
-  margin: 100px 0px;
-}
-
-.mat-form-field {
-  width: 100%;
-  min-width: 300px;
-}
-
-mat-card-title,
-mat-card-content {
-  display: flex;
-  justify-content: center;
-}
-
-.error {
-  padding: 16px;
-  width: 300px;
-  color: white;
-  background-color: red;
-}
-
-.button {
-  display: flex;
-  justify-content: flex-end;
+.childdiv {
+  /* Center vertically and horizontally */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px; /* Apply negative top and left margins to truly center the element */
 }

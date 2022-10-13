@@ -18,6 +18,27 @@ export class LoginComponent implements OnInit {
   submitted = false;
   error = '';
 
+
+  mySidebar:any = null;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  open_sidebar(): void {
+    this.mySidebar = document.getElementById("mySidebar");
+    if (this.mySidebar.style.display === 'block') {
+      this.mySidebar.style.display = 'none';
+    } else {
+      this.mySidebar.style.display = 'block';
+    }
+  }
+
+  close_sidebar(): void {
+    this.mySidebar.style.display = "none";
+  }
+
   // constructor(
   //     private formBuilder: FormBuilder,
   //     private route: ActivatedRoute,
@@ -31,12 +52,12 @@ export class LoginComponent implements OnInit {
   //     }
   // }
 
-  ngOnInit() {
-      // this.loginForm = this.formBuilder.group({
-      //     email: ['', Validators.required],
-      //     password: ['', Validators.required]
-      // });
-  }
+  // ngOnInit() {
+  //     // this.loginForm = this.formBuilder.group({
+  //     //     email: ['', Validators.required],
+  //     //     password: ['', Validators.required]
+  //     // });
+  // }
 
   // // convenience getter for easy access to form fields
   // get f() { return this.loginForm.controls; }
