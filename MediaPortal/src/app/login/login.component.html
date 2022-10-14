@@ -66,7 +66,7 @@
         <mat-card >
           <mat-card-title>Login</mat-card-title>
           <mat-card-content>
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
               <p>
                 <mat-form-field>
                   <input matInput type="text" matInput placeholder="Username" formControlName="username">
@@ -84,7 +84,7 @@
               </p>
 
               <div class="button">
-                <button type="submit" mat-button >Login</button>
+                <button type="submit" mat-button [disabled]="!loginForm.valid">Login</button>
               </div>
             </form>
           </mat-card-content>
