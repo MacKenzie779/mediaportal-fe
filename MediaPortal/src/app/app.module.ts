@@ -16,10 +16,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { PricingComponent } from './pricing/pricing.component';
 import { ContactComponent } from './contact/contact.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes:Routes = [
   { path: '', component: HomepageComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'signup', component: SignupComponent },
   { path: 'pricing', component: PricingComponent },
   { path: 'login', component: LoginComponent },
   { path: '404', component: NotFoundPageComponent },
@@ -34,7 +36,8 @@ const routes:Routes = [
     NotFoundPageComponent,
     LoginComponent,
     PricingComponent,
-    ContactComponent
+    ContactComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
