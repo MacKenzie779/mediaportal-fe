@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'pricing', component: PricingComponent },
   { path: 'login', component: LoginComponent },
   { path: '404', component: NotFoundPageComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent },
   { path: '**', redirectTo: '404', pathMatch: 'full' }
 ];
 
