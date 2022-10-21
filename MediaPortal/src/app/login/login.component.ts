@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     private router: Router, private authenticationService: AuthenticationService ) {
     // redirect to dashboard if already logged in
     if (this.authenticationService.currentUserValue.id > 0) {
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/convert']);
     }
   }
 
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.loginForm.controls['username'].value, this.loginForm.controls['password'].value).pipe(first()).subscribe({
       next: () => {
         // get return url from route parameters or default to '/dashboard'
-        const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
+        const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/convert';
         this.router.navigate([returnUrl]);
       },
       error: error => {

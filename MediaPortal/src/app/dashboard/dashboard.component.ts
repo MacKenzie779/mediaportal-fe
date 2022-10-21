@@ -27,4 +27,8 @@ export class DashboardComponent implements OnInit {
     this.mySidebar.style.display = "none";
   }
 
+  clicked() {
+    window.alert("ok");
+  }
+
 }

@@ -17,9 +17,6 @@
 
       /* Full height image header */
       .bgimg-1 {
-        background-position: center;
-        background-size: cover;
-        background-image: url("/assets/laptop.jpg");
         min-height: 100%;
       }
 
@@ -32,12 +29,13 @@
     <!-- Navbar (sit on top) -->
     <div class="w3-top">
       <div class="w3-bar w3-white w3-card" id="myNavbar">
-        <a [routerLink]="['']" class="w3-bar-item w3-button w3-wide"><i class="fa fa-gears"></i><b>DASHBOARD</b></a>
+        <a [routerLink]="['/convert']" class="w3-bar-item w3-button w3-wide"><i class="fa fa-gears"></i><b>DASHBOARD</b></a>
         <!-- Right-sided navbar links -->
         <div class="w3-right w3-hide-small">
-          <a [routerLink]="['/signup']" class="w3-bar-item w3-button"><i class="fa fa-user"></i> YOU-TUBE</a>
-          <a [routerLink]="['/pricing']" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> MEDIA FILES</a>
-          <a [routerLink]="['/contact']" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> LOGOUT</a>
+          <a [routerLink]="['/convert/youtube']" class="w3-bar-item w3-button"><i class="fa fa-film"></i> YOUTUBE</a>
+          <a [routerLink]="['/convert/media']" class="w3-bar-item w3-button"><i class="fa fa-folder-open"></i> MEDIA FILES</a>
+          <a [routerLink]="['/user/changepassword']" class="w3-bar-item w3-button"><i class="fa fa-sliders"></i> SETTINGS</a>
+          <a [routerLink]="['/logout']" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i> LOGOUT</a>
         </div>
         <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -50,24 +48,20 @@
     <!-- Sidebar on small screens when clicking the menu icon -->
     <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-right w3-hide-medium w3-hide-large" style="display:none; right:0" id="mySidebar">
       <a href="javascript:void(0)" (click)="close_sidebar()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-      <a [routerLink]="['/signup']" (click)="close_sidebar()" class="w3-bar-item w3-button">YOU-TUBE</a>
-      <a [routerLink]="['/pricing']" (click)="close_sidebar()" class="w3-bar-item w3-button">MEDIA FILES</a>
-      <a [routerLink]="['/contact']" (click)="close_sidebar()" class="w3-bar-item w3-button">LOGOUT</a>
+      <a [routerLink]="['/convert/youtube']" (click)="close_sidebar()" class="w3-bar-item w3-button">YOUTUBE</a>
+      <a [routerLink]="['/convert/media']" (click)="close_sidebar()" class="w3-bar-item w3-button">MEDIA FILES</a>
+      <a [routerLink]="['/user/changepassword']" (click)="close_sidebar()" class="w3-bar-item w3-button">SETTINGS</a>
+      <a [routerLink]="['/logout']" (click)="close_sidebar()" class="w3-bar-item w3-button">LOGOUT</a>
     </nav>
 
     <!-- Header with full-height image -->
-    <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-      <div class="w3-display-left w3-text-white" style="padding:48px">
-        <span class="w3-jumbo w3-hide-small"><b>Dashboard</b></span><br>
-        <span class="w3-xxxlarge w3-hide-large w3-hide-medium"><b>Dashboard</b></span><br>
-        <span class="w3-xxlarge">Select feature</span>
-        <p><a [routerLink]="['/signup']" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Start for Free</a></p>
-      </div>
-      <div class="w3-display-bottomright w3-text-grey" style="padding:24px 48px">
-        <a href="https://www.facebook.com/MediaPortal"><span class="w3-xxxlarge fa fa-facebook-official w3-hover-opacity w3-large"></span></a>
-        <span>&NonBreakingSpace;</span>
-        <a href="https://www.instagram.com/MediaPortal"><span class="w3-xxxlarge fa fa-instagram w3-hover-opacity"></span></a>
-      </div>
+    <header class="bgimg-1 w3-grayscale-min" id="home">
+      <button [routerLink]="['/convert/youtube']" class="bigbutton btn1">
+        <div class="textdiv"><h1><b>YOUTUBE</b></h1></div>
+      </button>
+      <button [routerLink]="['/convert/media']" class="bigbutton btn2">
+        <div class="textdiv"><h1><b>MEDIA</b></h1></div>
+      </button>
     </header>
   </body>
 </html>

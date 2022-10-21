@@ -1,0 +1,46 @@
+#home {
+  display: grid;
+  @media screen and (max-width: 600px) {
+    grid-template-rows: 54% 46%;
+  }
+  @media screen and (min-width: 600px) {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+.btn1 {
+  background-position: center;
+  background-size: cover;
+  background-color: #FF0000;
+  &:hover {
+    opacity: 0.8;
+    transition: 0.25s;
+  }
+
+}
+
+.btn2 {
+  background-position: center;
+  background-size: cover;
+  background-color: #3178C6;
+  &:hover {
+    opacity: 0.8;
+    transition: 0.25s;
+  }
+}
+
+.bigbutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textdiv {
+  h1 {
+    font-size: 50px;
+    color: white;
+  }
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+}

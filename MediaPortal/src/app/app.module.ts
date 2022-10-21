@@ -15,6 +15,10 @@ import { PricingComponent } from './pricing/pricing.component';
 import { ContactComponent } from './contact/contact.component';
 import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { YoutubeComponent } from './youtube/youtube.component';
+import { MediaComponent } from './media/media.component';
+import { ChangepasswdComponent } from './changepasswd/changepasswd.component';
+import { LogoutComponent } from './logout/logout.component';
 
 //Angular Materials
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -38,7 +42,11 @@ import { ErrorInterceptor } from './_helpers';
     PricingComponent,
     ContactComponent,
     SignupComponent,
-    DashboardComponent
+    DashboardComponent,
+    YoutubeComponent,
+    MediaComponent,
+    ChangepasswdComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
