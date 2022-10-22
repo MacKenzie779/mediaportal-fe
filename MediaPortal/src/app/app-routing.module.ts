@@ -15,17 +15,17 @@ import { MediaComponent } from './media/media.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'pricing', component: PricingComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'convert/dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'convert/youtube', component: YoutubeComponent, canActivate: [AuthGuard] },
+  { path: 'convert/media', component: MediaComponent, canActivate: [AuthGuard] },
+  { path: 'user/changepassword', component: ChangepasswdComponent, canActivate: [AuthGuard] },
+  { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] },
   { path: '404', component: NotFoundPageComponent },
-  { path: 'convert', redirectTo: 'convert/dashboard' },
-  { path: 'convert/dashboard', component: DashboardComponent },
-  { path: 'convert/youtube', component: YoutubeComponent },
-  { path: 'convert/media', component: MediaComponent },
-  { path: 'user/changepassword', component: ChangepasswdComponent },
-  { path: 'logout', component: LogoutComponent },
+  { path: 'convert', redirectTo: 'convert/dashboard'},
   { path: '**', redirectTo: '404', pathMatch: 'full' }
 ];
 

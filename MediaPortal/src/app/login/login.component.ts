@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     private router: Router, private authenticationService: AuthenticationService ) {
     // redirect to dashboard if already logged in
     if (this.authenticationService.currentUserValue.id > 0) {
-      this.router.navigate(['/convert']);
+      this.router.navigate(['/convert/dashboard']);
     }
   }
 
@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-    this.authenticationService.logout();
   }
 
   onSubmit() {

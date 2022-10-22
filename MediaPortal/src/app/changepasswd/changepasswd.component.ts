@@ -24,8 +24,8 @@ export class ChangepasswdComponent implements OnInit {
   constructor( private formBuilder: FormBuilder, private route: ActivatedRoute,
     private router: Router, private authenticationService: AuthenticationService ) {
     // redirect to dashboard if already logged in
-    if (this.authenticationService.currentUserValue.id > 0) {
-      this.router.navigate(['/convert']);
+    if (this.authenticationService.currentUserValue.id <= 0) {
+      this.router.navigate(['/login']);
     }
   }
 
@@ -34,7 +34,6 @@ export class ChangepasswdComponent implements OnInit {
       oldpwd: ['', Validators.required],
       newpwd: ['', Validators.required]
     });
-    this.authenticationService.logout();
   }
 
   onSubmit() {
