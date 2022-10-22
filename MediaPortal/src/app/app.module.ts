@@ -28,9 +28,12 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 //ErrorInterceptor
 import { ErrorInterceptor } from './_helpers';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 
 @NgModule({
@@ -46,7 +49,8 @@ import { ErrorInterceptor } from './_helpers';
     YoutubeComponent,
     MediaComponent,
     ChangepasswdComponent,
-    LogoutComponent
+    LogoutComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,9 @@ import { ErrorInterceptor } from './_helpers';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule,
+    MatProgressBarModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
