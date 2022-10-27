@@ -5,6 +5,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 //auth service
 import { AuthenticationService } from '@app/_services';
+import { MustMatch } from '@app/_helpers';
+import { AbstractControlOptions } from '@angular/forms';
 
 @Component({
   selector: 'app-changepasswd',
@@ -20,20 +22,24 @@ export class ChangepasswdComponent implements OnInit {
   submitted = false;
   //errors on login, shown to the user
   error:any = '';
+  isError:boolean = true;
 
   constructor( private formBuilder: FormBuilder, private route: ActivatedRoute,
-    private router: Router, private authenticationService: AuthenticationService ) {
-    // redirect to dashboard if already logged in
-    if (this.authenticationService.currentUserValue.id <= 0) {
-      this.router.navigate(['/login']);
-    }
-  }
+    private router: Router, private authenticationService: AuthenticationService ) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       oldpwd: ['', Validators.required],
-      newpwd: ['', Validators.required]
+      newpwd: ['', Validators.required],
+      newpwdRepeat: ['', Validators.required]
+    },
+    {
+      validator: MustMatch('newpwd', 'newpwdRepeat')
     });
+  }
+
+  get field () {
+    return this.loginForm.controls;
   }
 
   onSubmit() {
@@ -43,11 +49,14 @@ export class ChangepasswdComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.authenticationService.login(this.loginForm.controls['username'].value, this.loginForm.controls['password'].value).pipe(first()).subscribe({
+    var user = this.authenticationService.currentUserValue['username'];
+    console.log(user);
+    this.authenticationService.changepwd(this.authenticationService.currentUserValue['username'], this.field['oldpwd'].value, this.loginForm.controls['newpwd'].value).pipe(first()).subscribe({
       next: () => {
         // get return url from route parameters or default to '/dashboard'
-        const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/convert';
-        this.router.navigate([returnUrl]);
+        this.isError = false;
+        this.error = "Password changed succesfully!";
+        this.loginForm.reset();
       },
       error: error => {
         this.error = error;

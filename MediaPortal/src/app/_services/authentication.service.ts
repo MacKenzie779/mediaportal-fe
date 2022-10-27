@@ -26,7 +26,6 @@ export class AuthenticationService {
 
   login(username: string, password: string) {
     return this.http.post<any>(`${environment.apiUrl}/user/login`, { username, password }).pipe(map(user => {
-      console.log(user);
       localStorage.setItem('currentUser', JSON.stringify(user));
       this.currentUserSubject.next(user);
       return user;
@@ -36,9 +35,20 @@ export class AuthenticationService {
   logout(username: string) {
     // remove user from local storage to log user out
     this.http.post<any>(`${environment.apiUrl}/user/logout`, {username}).subscribe(resp => {
-      console.log(resp);
     });
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(new User);
+  }
+
+  signup(username: string, email:string, password: string) {
+    return this.http.post<any>(`${environment.apiUrl}/user/add`, { username, email, password }).pipe(map(user => {
+      return user;
+    }));
+  }
+
+  changepwd(username:string, oldpwd:string, newpwd:string) {
+    return this.http.post<any>(`${environment.apiUrl}/user/chpwd`, { username, oldpwd, newpwd }).pipe(map(user => {
+      return user;
+    }));
   }
 }

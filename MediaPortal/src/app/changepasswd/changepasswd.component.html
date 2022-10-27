@@ -79,7 +79,13 @@
                 </mat-form-field>
               </p>
 
-              <p *ngIf="error" class="error">
+              <p>
+                <mat-form-field>
+                  <input matInput type="password" matInput placeholder="Repeat new password" formControlName="newpwdRepeat">
+                </mat-form-field>
+              </p>
+
+              <p *ngIf="error" [className]="isError ? 'error' : 'success'">
                 {{ error }}
               </p>
 
