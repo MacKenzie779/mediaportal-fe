@@ -74,19 +74,28 @@
                 <mat-form-field appearance="fill" >
                   <mat-label>Select conversion output type</mat-label>
                   <mat-select formControlName="convType">
-                    <mat-option value="one">audio only - mp3</mat-option>
-                    <mat-option value="one">video only - mp4</mat-option>
-                    <mat-option value="two">video + audio - mp4</mat-option>
+                    <mat-option value=1>audio only - mp3</mat-option>
+                    <mat-option value=2>video only - mp4</mat-option>
+                    <mat-option value=3>video + audio - mp4</mat-option>
                   </mat-select>
                 </mat-form-field>
               </p>
-
               <p *ngIf="error" class="error">
                 {{ error }}
               </p>
-
               <div class="button">
-                <button type="submit" mat-button [disabled]="!loginForm.valid">Convert</button>
+                <button type="submit" mat-button [disabled]="!loginForm.valid||currentMedia.filepath">Convert</button>
+              </div>
+              <div *ngIf="currentMedia.filepath">
+                <hr>
+                <form [formGroup]="downloadForm" (ngSubmit)="onDownload()">
+                  <p>
+                    <mat-label>{{currentMedia.filepath}}</mat-label>
+                  </p>
+                  <div class="button">
+                    <button type="submit" mat-button>Download</button>
+                  </div>
+                </form>
               </div>
             </form>
           </mat-card-content>
