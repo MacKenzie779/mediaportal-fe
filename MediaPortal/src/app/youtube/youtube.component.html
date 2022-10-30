@@ -89,9 +89,7 @@
               <div *ngIf="currentMedia.filepath">
                 <hr>
                 <form [formGroup]="downloadForm" (ngSubmit)="onDownload()">
-                  <p>
-                    <mat-label>{{currentMedia.filepath}}</mat-label>
-                  </p>
+                  <h6>{{currentMedia.filepath}}</h6>
                   <div class="button">
                     <button type="submit" mat-button>Download</button>
                   </div>
@@ -102,5 +100,6 @@
         </mat-card>
       </div>
     </header>
+    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "pacman" [fullScreen] = "true"><h3 style="color: white">{{loadingtext}}</h3></ngx-spinner>
   </body>
 </html>

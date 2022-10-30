@@ -1,12 +1,13 @@
 import { Media } from './../_models/media';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 //import environment var
 import { environment } from '@environments/environment';
 import { AuthenticationService } from '@app/_services';
-import { first } from 'rxjs/operators';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { saveAs } from 'file-saver';
 
 
 @Component({
@@ -21,10 +22,12 @@ export class YoutubeComponent implements OnInit {
   downloadForm!: FormGroup;
   currentMedia:Media;
   mySidebar:any = null;
+  typeSelected: string;
+  loadingtext = "";
 
-
-  constructor(private formBuilder: FormBuilder, private http : HttpClient, private authenticationService: AuthenticationService) {
+  constructor(private formBuilder: FormBuilder, private http : HttpClient, private authenticationService: AuthenticationService, private spinnerService: NgxSpinnerService) {
     this.currentMedia = new Media();
+    this.typeSelected = "ball-spin";
   }
 
   ngOnInit(): void {
@@ -44,6 +47,16 @@ export class YoutubeComponent implements OnInit {
     }
   }
 
+  public showSpinner(loadingInfo:string): void {
+    this.loadingtext = loadingInfo;
+    this.spinnerService.show();
+  }
+
+  stopSpinner():void {
+    this.spinnerService.hide();
+    this.loadingtext = "";
+  }
+
   close_sidebar(): void {
     this.mySidebar.style.display = "none";
   }
@@ -53,7 +66,9 @@ export class YoutubeComponent implements OnInit {
   }
 
   onSubmit() {
+    this.error = "";
     var uri = this.loginForm.controls['url'].value;
+    this.showSpinner("Downloading \"" + uri + "\" from youtube.com");
     var format:Number = Number(this.loginForm.controls['convType'].value);
     var uid = this.authenticationService.currentUserValue['id'];
     this.http.post<any>(`${environment.apiUrl}/data/yt_dl`, {uid, uri, format}).subscribe({
@@ -61,15 +76,35 @@ export class YoutubeComponent implements OnInit {
         this.currentMedia = new Media();
         this.currentMedia.filepath = resp['filename'];
         this.currentMedia.mid = resp['mid'];
+        this.stopSpinner();
       },
       error: error => {
+        this.stopSpinner();
         this.error = error;
       }
     });
   }
 
   onDownload() {
-    console.log("download converted file");
+    this.showSpinner("Downloading \"" + this.currentMedia.filepath + "\"");
+    var mid = this.currentMedia.mid;
+    console.log(mid);
+    var uid = this.authenticationService.currentUserValue['id'];
+    console.log(uid);
+    this.http.post(`${environment.apiUrl}/data/download`, {uid, mid}, {responseType: 'blob'}).subscribe({
+      next: (resp) => {
+        console.log("Response:")
+        console.log(typeof resp);
+        saveAs(resp, this.currentMedia.filepath);
+        this.stopSpinner();
+        window.location.reload();
+      },
+      error: error => {
+        this.stopSpinner();
+        this.error = error;
+        console.log("Error:");
+        console.log(this.error);
+      }
+    });
   }
-
 }
