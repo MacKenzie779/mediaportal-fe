@@ -53,6 +53,7 @@ export class MediaComponent implements OnInit {
   onDownload() {
     console.log("download");
   }
+  
 
   onFileSelected(event:any) {
 
