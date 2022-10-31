@@ -1,0 +1,8 @@
+
+{
+  "/api/*": {
+      "target": "http://games.hpschleppi.ga:8080",
+      "secure": false,
+      "logLevel": "debug"
+  }
+}
