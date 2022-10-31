@@ -47,8 +47,8 @@
 
     <!-- Sidebar on small screens when clicking the menu icon -->
     <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-right w3-hide-medium w3-hide-large" style="display:none; right:0" id="mySidebar">
-      <a href="javascript:void(0)" (click)="close_sidebar()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-      <a [routerLink]="['/convert']" (click)="close_sidebar()" class="w3-bar-item w3-button">DASHBOARD</a>
+      <a href="javascript:void(0)" (click)="close_sidebar()" class="w3-bar-item w3-button w3-large w3-padding-16">close ×</a>
+      <a [routerLink]="['/convert']" (click)="close_sidebar()" class="w3-bar-item w3-button active_route_mobile">DASHBOARD</a>
       <a [routerLink]="['/convert/youtube']" (click)="close_sidebar()" class="w3-bar-item w3-button">YOUTUBE</a>
       <a [routerLink]="['/convert/media']" (click)="close_sidebar()" class="w3-bar-item w3-button">MEDIA FILES</a>
       <a [routerLink]="['/logout']" (click)="close_sidebar()" class="w3-bar-item w3-button">LOGOUT</a>

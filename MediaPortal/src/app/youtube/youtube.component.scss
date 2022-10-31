@@ -26,3 +26,12 @@ mat-card-content {
   display: flex;
   justify-content: flex-end;
 }
+
+.active_route {
+  background-color: lightgray;
+}
+
+.active_route_mobile {
+  background-color: lightgray;
+  color: black;
+}

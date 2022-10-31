@@ -61,6 +61,7 @@ export class ChangepasswdComponent implements OnInit {
         this.isError = false;
         this.error = "Password changed succesfully!";
         this.loginForm.reset();
+        this.router.navigate(['/convert']);
       },
       error: error => {
         this.error = error;

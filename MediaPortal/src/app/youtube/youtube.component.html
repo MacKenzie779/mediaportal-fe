@@ -35,13 +35,13 @@
     <!-- Navbar (sit on top) -->
     <div class="w3-top">
       <div class="w3-bar w3-white w3-card" id="myNavbar">
-        <a [routerLink]="['/user/changepassword']" class="w3-bar-item w3-button"><i class="fa fa-user"></i> {{user.username}}</a>
+        <a [routerLink]="['/user/changepassword']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-user"></i> {{user.username}}</a>
         <!-- Right-sided navbar links -->
         <div class="w3-right w3-hide-small">
           <a [routerLink]="['/convert']" class="w3-bar-item w3-button"><i class="fa fa-desktop"></i> DASHBOARD</a>
-          <a [routerLink]="['/convert/youtube']" class="w3-bar-item w3-button"><i class="fa fa-film"></i> YOUTUBE</a>
-          <a [routerLink]="['/convert/media']" class="w3-bar-item w3-button"><i class="fa fa-folder-open"></i> MEDIA FILES</a>
-          <a [routerLink]="['/logout']" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i> LOGOUT</a>
+          <a [routerLink]="['/convert/youtube']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-film"></i> YOUTUBE</a>
+          <a [routerLink]="['/convert/media']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-folder-open"></i> MEDIA FILES</a>
+          <a [routerLink]="['/logout']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i> LOGOUT</a>
         </div>
         <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -53,9 +53,9 @@
 
     <!-- Sidebar on small screens when clicking the menu icon -->
     <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-right w3-hide-medium w3-hide-large" style="display:none; right:0" id="mySidebar">
-      <a href="javascript:void(0)" (click)="close_sidebar()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+      <a href="javascript:void(0)" (click)="close_sidebar()" class="w3-bar-item w3-button w3-large w3-padding-16">close ×</a>
       <a [routerLink]="['/convert']" (click)="close_sidebar()" class="w3-bar-item w3-button">DASHBOARD</a>
-      <a [routerLink]="['/convert/youtube']" (click)="close_sidebar()" class="w3-bar-item w3-button">YOUTUBE</a>
+      <a [routerLink]="['/convert/youtube']" (click)="close_sidebar()" class="w3-bar-item w3-button active_route_mobile">YOUTUBE</a>
       <a [routerLink]="['/convert/media']" (click)="close_sidebar()" class="w3-bar-item w3-button">MEDIA FILES</a>
       <a [routerLink]="['/logout']" (click)="close_sidebar()" class="w3-bar-item w3-button">LOGOUT</a>
     </nav>

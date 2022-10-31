@@ -31,3 +31,12 @@ mat-card-content {
   height: 25px;
   align-self: center;
 }
+
+.active_route {
+  background-color: lightgray;
+}
+
+.active_route_mobile {
+  background-color: lightgray;
+  color: black;
+}

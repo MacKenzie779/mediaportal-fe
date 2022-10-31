@@ -45,6 +45,11 @@
   justify-content: center;
 }
 
-.route_active {
-  text-decoration: underline;
+.active_route {
+  background-color: lightgray;
+}
+
+.active_route_mobile {
+  background-color: lightgray;
+  color: black;
 }
