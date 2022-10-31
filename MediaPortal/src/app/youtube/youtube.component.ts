@@ -89,13 +89,9 @@ export class YoutubeComponent implements OnInit {
   onDownload() {
     this.showSpinner("Downloading \"" + this.currentMedia.filepath + "\"");
     var mid = this.currentMedia.mid;
-    console.log(mid);
     var uid = this.authenticationService.currentUserValue['id'];
-    console.log(uid);
     this.http.post(`${environment.apiUrl}/data/download`, {uid, mid}, {responseType: 'blob'}).subscribe({
       next: (resp) => {
-        console.log("Response:")
-        console.log(typeof resp);
         saveAs(resp, this.currentMedia.filepath);
         this.stopSpinner();
         window.location.reload();
@@ -103,8 +99,6 @@ export class YoutubeComponent implements OnInit {
       error: error => {
         this.stopSpinner();
         this.error = error;
-        console.log("Error:");
-        console.log(this.error);
       }
     });
   }
