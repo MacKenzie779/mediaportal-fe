@@ -59,8 +59,51 @@
       <a [routerLink]="['/convert/media']" (click)="close_sidebar()" class="w3-bar-item w3-button">MEDIA FILES</a>
       <a [routerLink]="['/logout']" (click)="close_sidebar()" class="w3-bar-item w3-button">LOGOUT</a>
     </nav>
-    <!-- Header with full-height image -->
-    <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+        <!-- Header with full-height image -->
+        <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+          <div class="logindiv">
+            <mat-card >
+              <mat-card-title>Convert your media files</mat-card-title>
+              <mat-card-content>
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                  <input type="file" class="file-input" (change)="onFileSelected($event)" formControlName="upload" #fileUpload>
+                  <div class="file-upload">
+                    {{fileName || "Choose file"}}
+                    <button mat-mini-fab color="primary" class="upload-btn"(click)="fileUpload.click()"><mat-icon>attach_file</mat-icon></button>
+                  </div>
+                  <p>
+                    <mat-form-field appearance="fill" >
+                      <mat-label>Select conversion output type</mat-label>
+                      <mat-select formControlName="convType">
+                        <mat-option value=1>audio only - mp3</mat-option>
+                        <mat-option value=2>video only - mp4</mat-option>
+                        <mat-option value=3>video + audio - mp4</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </p>
+                  <p *ngIf="error" class="error">
+                    {{ error }}
+                  </p>
+                  <div class="button">
+                    <button type="submit" mat-button [disabled]="!loginForm.valid||currentMedia.filepath">Convert</button>
+                  </div>
+                  <div *ngIf="currentMedia.filepath">
+                    <hr>
+                    <form [formGroup]="downloadForm" (ngSubmit)="onDownload()">
+                      <h6>{{currentMedia.filepath}}</h6>
+                      <div class="button">
+                        <button type="submit" mat-button>Download</button>
+                      </div>
+                    </form>
+                  </div>
+                </form>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </header>
+        <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "pacman" [fullScreen] = "true"><h3 style="color: white">{{loadingtext}}</h3></ngx-spinner>
+
+    <!-- <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
       <div class="logindiv">
 
         <mat-card>
@@ -69,15 +112,6 @@
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
               <app-file-upload></app-file-upload>
               <p>
-                <mat-form-field appearance="fill" >
-                  <mat-label>Select conversion input type</mat-label>
-                  <mat-select formControlName="convInType">
-                    <mat-option value="one">audio only - mp3</mat-option>
-                    <mat-option value="one">video only - mp4</mat-option>
-                    <mat-option value="two">video + audio - mp4</mat-option>
-                  </mat-select>
-                </mat-form-field>
-
                 <mat-form-field appearance="fill" >
                   <mat-label>Select conversion output type</mat-label>
                   <mat-select formControlName="convOutType">
@@ -99,6 +133,6 @@
           </mat-card-content>
         </mat-card>
       </div>
-    </header>
+    </header> -->
   </body>
 </html>

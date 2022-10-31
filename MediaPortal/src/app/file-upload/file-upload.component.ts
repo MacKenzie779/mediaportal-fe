@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class FileUploadComponent implements OnInit {
 
   ngOnInit(): void {
-    
+
   }
 
   fileName = '';
