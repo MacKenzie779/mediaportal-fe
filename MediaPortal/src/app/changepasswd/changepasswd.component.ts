@@ -21,7 +21,7 @@ export class ChangepasswdComponent implements OnInit {
   loginForm!: FormGroup;
   loading = false;
   submitted = false;
-  //errors on login
+  //errors on login, shown to user
   error:any = '';
   isError:boolean = true;
   user:User;
