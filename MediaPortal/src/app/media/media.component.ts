@@ -1,5 +1,7 @@
+import { AuthenticationService } from '@app/_services';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from '@app/_models';
 
 @Component({
   selector: 'app-media',
@@ -10,10 +12,12 @@ export class MediaComponent implements OnInit {
 
   error:any = "";
   loginForm!: FormGroup;
-
+  user:User;
   mySidebar:any = null;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, authService:AuthenticationService) {
+    this.user = authService.currentUserValue;
+  }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({

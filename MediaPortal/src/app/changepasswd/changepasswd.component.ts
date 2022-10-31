@@ -7,6 +7,7 @@ import { first } from 'rxjs/operators';
 import { AuthenticationService } from '@app/_services';
 import { MustMatch } from '@app/_helpers';
 import { AbstractControlOptions } from '@angular/forms';
+import { User } from '@app/_models/user';
 
 @Component({
   selector: 'app-changepasswd',
@@ -23,9 +24,12 @@ export class ChangepasswdComponent implements OnInit {
   //errors on login, shown to the user
   error:any = '';
   isError:boolean = true;
+  user:User;
 
   constructor( private formBuilder: FormBuilder, private route: ActivatedRoute,
-    private router: Router, private authenticationService: AuthenticationService ) {}
+    private router: Router, private authenticationService: AuthenticationService ) {
+      this.user = authenticationService.currentUserValue;
+    }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({

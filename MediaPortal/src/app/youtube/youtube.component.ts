@@ -8,6 +8,7 @@ import { environment } from '@environments/environment';
 import { AuthenticationService } from '@app/_services';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { saveAs } from 'file-saver';
+import { User } from '@app/_models';
 
 
 @Component({
@@ -22,12 +23,12 @@ export class YoutubeComponent implements OnInit {
   downloadForm!: FormGroup;
   currentMedia:Media;
   mySidebar:any = null;
-  typeSelected: string;
   loadingtext = "";
+  user:User;
 
   constructor(private formBuilder: FormBuilder, private http : HttpClient, private authenticationService: AuthenticationService, private spinnerService: NgxSpinnerService) {
     this.currentMedia = new Media();
-    this.typeSelected = "ball-spin";
+    this.user = authenticationService.currentUserValue;
   }
 
   ngOnInit(): void {
