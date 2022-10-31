@@ -34,7 +34,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
 //ErrorInterceptor
 import { ErrorInterceptor } from './_helpers';
-import { FileUploadComponent } from './file-upload/file-upload.component';
 
 
 @NgModule({
@@ -50,8 +49,7 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     YoutubeComponent,
     MediaComponent,
     ChangepasswdComponent,
-    LogoutComponent,
-    FileUploadComponent
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
