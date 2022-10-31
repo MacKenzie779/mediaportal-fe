@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-not-found-page',
@@ -9,7 +10,7 @@ export class NotFoundPageComponent implements OnInit {
 
   mySidebar:any = null;
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
   }
@@ -27,5 +28,7 @@ export class NotFoundPageComponent implements OnInit {
     this.mySidebar.style.display = "none";
   }
 
-
+  onClick() {
+    this.location.back();
+  }
 }
