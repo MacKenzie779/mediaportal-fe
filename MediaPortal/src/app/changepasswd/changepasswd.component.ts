@@ -6,7 +6,6 @@ import { first } from 'rxjs/operators';
 //auth service
 import { AuthenticationService } from '@app/_services';
 import { MustMatch } from '@app/_helpers';
-import { AbstractControlOptions } from '@angular/forms';
 import { User } from '@app/_models/user';
 
 @Component({
