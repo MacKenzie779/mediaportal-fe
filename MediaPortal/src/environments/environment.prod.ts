@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://web.hpschleppi.ga:8080'
+  apiUrl: 'https://web.hpschleppi.ga:8080'
 };
