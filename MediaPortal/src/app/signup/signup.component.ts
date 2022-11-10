@@ -50,12 +50,6 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.loginForm.invalid) {
-      return;
-    }
-    this.loading = true;
     this.authenticationService.signup(this.field['username'].value, this.field['email'].value, this.field['password'].value, ).pipe(first()).subscribe({
       next: () => {
         this.authenticationService.login(this.field['username'].value, this.field['password'].value).pipe(first()).subscribe({
